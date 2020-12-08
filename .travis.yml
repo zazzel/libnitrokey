@@ -1,4 +1,8 @@
 language: generic
+arch:
+ - amd64
+ - ppc64le
+
 os: osx
 env:
   global:
@@ -9,7 +13,7 @@ jobs:
     - osx_image: xcode11.5
     - osx_image: xcode9.1
     - os: linux
-      dist: trusty
+      dist: xenial
       env: COMPILER_NAME=gcc CXX=g++-5 CC=gcc-5
       addons:
         apt:
@@ -20,7 +24,7 @@ jobs:
           sources: &sources
             - ubuntu-toolchain-r-test
     - os: linux
-      dist: trusty
+      dist: xenial
       env: COMPILER_NAME=gcc CXX=g++-7 CC=gcc-7
       addons:
         apt:
@@ -55,7 +59,7 @@ jobs:
         - cd build-meson && ninja
         - env DESTDIR=install ninja install
     - os: linux
-      dist: trusty
+      dist: xenial
       env: COMPILER_NAME=clang CXX=clang++-3.8 CC=clang-3.8
       addons:
         apt:
